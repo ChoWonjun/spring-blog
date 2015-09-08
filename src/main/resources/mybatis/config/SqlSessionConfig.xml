@@ -9,13 +9,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>	
 	<!-- 사용할 클래스에 대한 별칭을 명시한다.  -->
 	<typeAliases>
-		 <!-- <typeAlias type="org.devnote.myblog.model.article.Article" alias="article"/>
-		 <typeAlias type="org.devnote.myblog.model.article.ArticlePage" alias="page"/> -->
+		 <typeAlias type="xyz.funk2punk.blog.model.post.Post" alias="post"/>
+		 <typeAlias type="xyz.funk2punk.blog.common.Page" alias="page"/>
 	</typeAliases>
 	
 	<mappers>
-		<!-- <mapper resource="mybatis/config/articles.xml"/>
-		<mapper resource="mybatis/config/user.xml"/> -->
+		<mapper resource="mybatis/config/post.xml"/>
 	</mappers>
 </configuration>
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="post">
+	<resultMap type="post" id="postRM">
+		<result property="postNo" column="post_no" />
+		<result property="category" column="category" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="recommend" column="recommend" />
+		<result property="open" column="open" />
+		<result property="writeDate" column="write_date" />
+	</resultMap>
+	<insert id="insertPost">
+		<selectKey keyProperty="postNo" resultType="int" order="AFTER">
+			select max(post_no) from post
+		</selectKey>
+		insert into post(category,title,content,open,write_date)
+		values(#{category},#{title},#{content},#{open},now())
+	</insert>
+	<select id="getPost" resultMap="postRM">
+		select * from post where
+		post_no=#{postNo}
+	</select>
+	<delete id="deletePost">
+		delete from post where post_no=#{postNo}
+	</delete>
+	<select id="recentPost" resultMap="postRM">
+		select * from post where category=#{value} order by write_date desc limit 1
+	</select>
+	<select id="getTotalCounts" resultType="int">
+		select count(*) from post where category = #{value}
+	</select>
+	<select id="getPostList" parameterType="page" resultMap="postRM">
+		select post_no,title,date(write_date) as writeDate from springblog.post where category = #{category} order by post_no desc limit #{beginRow},#{pageSize};
+	</select>
+	<update id="updatePost">
+		update post set category=#{category},title=#{title},content=#{content},open=#{open} where post_no=#{postNo}
+	</update>
+</mapper>

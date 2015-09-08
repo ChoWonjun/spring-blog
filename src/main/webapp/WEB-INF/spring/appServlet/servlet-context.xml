@@ -48,10 +48,8 @@
 		<beans:property name="order" value="1"></beans:property>
 	</beans:bean>
 
-	<context:component-scan base-package="xyz.funk2punk.blog.controller" />
-
 	<!-- component scan -->
-	<context:component-scan base-package="org.devnote.myblog" />
+	<context:component-scan base-package="xyz.funk2punk.blog.controller" />
 
 	<!-- Spring Validation -->
 	<beans:bean id="messageSource"

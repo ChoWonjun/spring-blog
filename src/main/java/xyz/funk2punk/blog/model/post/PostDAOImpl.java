@@ -29,6 +29,14 @@ public class PostDAOImpl implements PostDAO {
 	public Post getPost(int postNo) {
 		return sqlSessionTemplate.selectOne("post.getPost", postNo);
 	}
+	
+	/* (non-Javadoc)
+	 * @see xyz.funk2punk.blog.model.post.PostDAO#updatePost(xyz.funk2punk.blog.model.post.Post)
+	 */
+	@Override
+	public void updatePost(Post post) {
+		sqlSessionTemplate.update("post.updatePost", post);
+	}
 
 	/* (non-Javadoc)
 	 * @see xyz.funk2punk.blog.model.post.PostDAO#deletePost(int)
@@ -52,14 +60,6 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<Post> getArticleList(Page page) {
 		return sqlSessionTemplate.selectList("post.getPostList", page);
-	}
-
-	/* (non-Javadoc)
-	 * @see xyz.funk2punk.blog.model.post.PostDAO#updatePost(xyz.funk2punk.blog.model.post.Post)
-	 */
-	@Override
-	public void updatePost(Post post) {
-		sqlSessionTemplate.update("post.updatePost", post);
 	}
 
 }

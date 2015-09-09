@@ -111,7 +111,7 @@
                     <div class="site-heading">
                         <h1>Cho's Blog</h1>
                         <hr class="small">
-                        <span class="subheading">A Personal Blog & Portfolio by Cho Wonjun</span>
+                        <span class="subheading">A Personal Repository about IT by Cho Wonjun</span>
                     </div>
                 </div>
             </div>
@@ -237,23 +237,6 @@
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
     });
     </script>
 

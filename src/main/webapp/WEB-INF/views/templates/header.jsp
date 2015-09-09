@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 
 <!-- Navigation -->
@@ -13,17 +17,26 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.html">Funk 2 Punk</a>
+			<a class="navbar-brand" href="${initParam.root}">Funk 2 Punk</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="index.html">Home</a></li>
-				<li><a href="about.html" id="menu-toggle">Board</a></li>
-				<li><a href="post.html">Portfolio</a></li>
-				<li><a href="contact.html">Sign In</a></li>
+				<li><a href="${initParam.root}">Home</a></li>
+				<li><a href="${initParam.root}post" id="menu-toggle">Board</a></li>
+				<li><a href="${initParam.root}portfolio">Portfolio</a></li>
+				<sec:authorize access="!isAuthenticated()">
+					<li><a href="${initParam.root}login">Sign In</a></li>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<li><a onclick="document.logoutForm.submit()" href="#">Sign Out</a></li>
+					<form name="logoutForm" action="${initParam.root}logout" method="post">
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
+					</form>
+				</sec:authorize>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

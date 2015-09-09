@@ -31,8 +31,10 @@
 					<li><a href="${initParam.root}login">Sign In</a></li>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
-					<li><a onclick="document.logoutForm.submit()" href="#">Sign Out</a></li>
-					<form name="logoutForm" action="${initParam.root}logout" method="post">
+					<li><a onclick="document.logoutForm.submit()" href="#">Sign
+							Out</a></li>
+					<form name="logoutForm" action="${initParam.root}logout"
+						method="post">
 						<input type="hidden" name="${_csrf.parameterName}"
 							value="${_csrf.token}" />
 					</form>
@@ -65,23 +67,11 @@
 		</li>
 		<li><a href="#portfolio" onclick=$("#menu-close").click(); >etc.</a>
 		</li>
+		<sec:authorize access="isAuthenticated()">
+			<li><a href="${initParam.root}post/write_form" onclick=$("#menu-close").click(); >[ Post ]</a>
+			</li>
+		</sec:authorize>
 	</ul>
 </nav>
 
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<header class="intro-header"
-	style="background-image: url('${initParam.root}resources/img/home-bg.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading">
-					<h1>Cho's Blog</h1>
-					<hr class="small">
-					<span class="subheading">A Personal Repository about IT by
-						Cho Wonjun</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
+

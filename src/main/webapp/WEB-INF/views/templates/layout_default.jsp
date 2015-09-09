@@ -50,10 +50,11 @@
 <body>
 	<div>
 		<div>
-			<tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<tiles:insertAttribute name="navigation"></tiles:insertAttribute>
+			<tiles:insertAttribute name="pageHeader"></tiles:insertAttribute>
 		</div>
 		<div>
-			<tiles:insertAttribute name="main"></tiles:insertAttribute>
+			<tiles:insertAttribute name="mainContent"></tiles:insertAttribute>
 		</div>
 		<div>
 			<tiles:insertAttribute name="footer"></tiles:insertAttribute>

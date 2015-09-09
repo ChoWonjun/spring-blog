@@ -1,24 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div>
-<br>
-</div>
-<nav class="navbar navbar-inverse" role="navigation">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse"
-			data-target=".navbar-ex1-collapse">
-			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
-			<span class="icon-bar"></span> <span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="${initParam.root}">MyBlog</a>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header page-scroll">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.html">Funk 2 Punk</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html" id="menu-toggle">Board</a></li>
+				<li><a href="post.html">Portfolio</a></li>
+				<li><a href="contact.html">Sign In</a></li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
 	</div>
-	<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
-		<ul class="nav navbar-nav">
-			<li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-envelope"></span></a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-calendar"></span></a></li>
-			<li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
-		</ul>
-	</div>
+	<!-- /.container -->
 </nav>
+
+<!-- side bar -->
+<nav id="sidebar-wrapper">
+	<ul class="sidebar-nav">
+		<a id="menu-close" href="#"
+			class="btn btn-light btn-lg pull-right toggle"><i
+			class="fa fa-times"></i></a>
+		<li class="sidebar-brand"><a href="#top" onclick=$("#menu-close").click(); >Categories</a>
+		</li>
+		<li><a href="#top" onclick=$("#menu-close").click(); >IT</a></li>
+		<li><a href="#about" onclick=$("#menu-close").click(); >Java</a>
+		</li>
+		<li><a href="#services" onclick=$("#menu-close").click(); >Spring</a>
+		</li>
+		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Database</a>
+		</li>
+		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Book</a>
+		</li>
+		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Movie</a>
+		</li>
+		<li><a href="#portfolio" onclick=$("#menu-close").click(); >etc.</a>
+		</li>
+	</ul>
+</nav>
+
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header"
+	style="background-image: url('${initParam.root}resources/img/home-bg.jpg')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="site-heading">
+					<h1>Cho's Blog</h1>
+					<hr class="small">
+					<span class="subheading">A Personal Repository about IT by
+						Cho Wonjun</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

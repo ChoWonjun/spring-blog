@@ -10,12 +10,13 @@ public interface PostDAO {
 
 	Post getPost(int postNo);
 
+	void updatePost(Post post);
+
 	void deletePost(int postNo);
 
 	int getTotalCounts(String category);
 
-	List<Post> getArticleList(Page page);
+	List<Post> getPostList(Page page);
 
-	void updatePost(Post post);
 
 }

@@ -19,6 +19,7 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public Post insertPost(Post post) {
 		sqlSessionTemplate.insert("post.insertPost", post);
+		System.out.println(post);
 		return post;
 	}
 
@@ -58,7 +59,7 @@ public class PostDAOImpl implements PostDAO {
 	 * @see xyz.funk2punk.blog.model.post.PostDAO#getArticleList(xyz.funk2punk.blog.common.Page)
 	 */
 	@Override
-	public List<Post> getArticleList(Page page) {
+	public List<Post> getPostList(Page page) {
 		return sqlSessionTemplate.selectList("post.getPostList", page);
 	}
 

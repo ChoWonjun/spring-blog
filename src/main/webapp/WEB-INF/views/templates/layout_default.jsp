@@ -50,11 +50,8 @@
 <body>
 	<div>
 		<div>
-			<tiles:insertAttribute name="navigation"></tiles:insertAttribute>
-			<tiles:insertAttribute name="pageHeader"></tiles:insertAttribute>
-		</div>
-		<div>
-			<tiles:insertAttribute name="mainContent"></tiles:insertAttribute>
+			<tiles:insertAttribute name="header"></tiles:insertAttribute>
+			<tiles:insertAttribute name="main"></tiles:insertAttribute>
 		</div>
 		<div>
 			<tiles:insertAttribute name="footer"></tiles:insertAttribute>
@@ -68,7 +65,7 @@
 	<script src="${initParam.root}resources/js/bootstrap.min.js"></script>
 
 	<!-- Custom Theme JavaScript -->
-	<script src="${initParam.root}resources/js/clean-blog.min.js"></script>
+	<%-- <script src="${initParam.root}resources/js/clean-blog.min.js"></script> --%>
 
 	<script>
 		// Closes the sidebar menu

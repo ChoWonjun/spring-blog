@@ -1,13 +1,20 @@
 package xyz.funk2punk.blog.model.post;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class Post {
 	private int postNo;
+	@NotEmpty
 	private String category;
+	@NotEmpty
 	private String title;
+	@NotEmpty
 	private String content;
 	private int recommend;
+	@NotEmpty
 	private boolean open;
 	private Date writeDate;
 
@@ -90,6 +97,12 @@ public class Post {
 
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
+	}
+	
+	public String getDate(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String date = sdf.format(writeDate);
+		return date;
 	}
 
 	@Override

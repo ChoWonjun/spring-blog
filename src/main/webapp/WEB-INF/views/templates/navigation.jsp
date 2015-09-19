@@ -17,7 +17,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="${initParam.root}">Funk 2 Punk</a>
+			<a class="navbar-brand" href="${initParam.root}">Codewid.Me</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,10 +68,8 @@
 		<li><a href="#portfolio" onclick=$("#menu-close").click(); >etc.</a>
 		</li>
 		<sec:authorize access="isAuthenticated()">
-			<li><a href="${initParam.root}post/write_form" onclick=$("#menu-close").click(); >[ Post ]</a>
+			<li><a href="${initParam.root}post/write_post" onclick=$("#menu-close").click(); >Post Article</a>
 			</li>
 		</sec:authorize>
 	</ul>
 </nav>
-
-

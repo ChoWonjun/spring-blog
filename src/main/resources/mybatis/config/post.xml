@@ -28,15 +28,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from post where post_no=#{postNo}
 	</delete>
 	<select id="recentPost" resultMap="postRM">
-		select * from post where category=#{value} order by write_date desc limit 1
+		select * from post where
+		category=#{value} order by write_date desc limit 1
 	</select>
 	<select id="getTotalCounts" resultType="int">
-		select count(*) from post where category = #{value}
+		select count(*) from post
+		<if test="categry != null || categry != ''">
+			where category = #{value}
+		</if>
 	</select>
 	<select id="getPostList" parameterType="page" resultMap="postRM">
-		select post_no,title,date(write_date) as writeDate from springblog.post where category = #{category} order by post_no desc limit #{beginRow},#{pageSize};
+		select post_no,title,date(write_date) as writeDate from
+		springblog.post
+		<if test="categry != null || categry != ''">
+			where category = #{category}
+		</if>
+		order by post_no desc limit #{beginRow},#{pageSize};
 	</select>
 	<update id="updatePost">
-		update post set category=#{category},title=#{title},content=#{content},open=#{open} where post_no=#{postNo}
+		update post set
+		category=#{category},title=#{title},content=#{content},open=#{open}
+		where post_no=#{postNo}
 	</update>
 </mapper>

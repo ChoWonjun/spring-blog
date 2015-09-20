@@ -14,9 +14,9 @@ public interface PostDAO {
 
 	void deletePost(int postNo);
 
-	int getTotalCounts(String category);
+	int getTotalCounts(Post post);
 
-	List<Post> getPostList(Page page);
+	List<Post> getPostList(Post post, Page page);
 
 
 }

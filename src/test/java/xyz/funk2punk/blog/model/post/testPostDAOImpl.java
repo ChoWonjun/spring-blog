@@ -2,6 +2,8 @@ package xyz.funk2punk.blog.model.post;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import xyz.funk2punk.blog.common.Page;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -27,34 +31,53 @@ public class testPostDAOImpl {
 	
 	@Test
 	public void testCRUD() {
-		//Post °´Ã¼ »ı¼º
+		//Post ï¿½ï¿½Ã¼ ï¿½ï¿½
 		String category = "test category";
 		String title = "second post";
 		String content = "test inserting post";
 		boolean open = true;
 		Post post = new Post(category,title,content,open);
 		
-		//Post Á¤º¸ DB ÀÔ·Â : insertPost()
+		//Post ï¿½ï¿½ï¿½ï¿½ DB ï¿½Ô·ï¿½ : insertPost()
 		postDAO.insertPost(post);
-		log.info("ÀÔ·Â °á°ú : postNo = {}", post.getPostNo());
+		log.info("ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ : postNo = {}", post.getPostNo());
 		
-		//ÀÔ·Â °á°ú Á¶È¸ : getPost()
+		//ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ : getPost()
 		Post getResult = postDAO.getPost(post.getPostNo());
-		log.info("Á¶È¸ °á°ú : {}", getResult);
+		log.info("ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ : {}", getResult);
 		
-		//Post Á¤º¸ ¼öÁ¤ : updatePost()
+		//Post ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : updatePost()
 		post.setCategory("test updating");
 		post.setTitle("update post");
 		post.setContent("test update method");
 		post.setOpen(false);
 		postDAO.updatePost(post);
 		Post updateResult = postDAO.getPost(post.getPostNo());
-		log.info("¼öÁ¤ °á°ú : {}", updateResult);
+		log.info("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : {}", updateResult);
 		
-		//Post Á¤º¸ »èÁ¦ : deletePost()
+		//Post ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : deletePost()
 		postDAO.deletePost(post.getPostNo());
 		Post deleteResult = postDAO.getPost(post.getPostNo());
-		log.info("»èÁ¦ °á°ú : {}", deleteResult);
+		log.info("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : {}", deleteResult);
+	}
+	
+	@Test
+	public void testGetTotalCounts(){
+		Post post = new Post();
+		post.setCategory("Spring");
+		int result = postDAO.getTotalCounts(post);
+		log.info("í¬ìŠ¤íŠ¸ ìˆ˜ : {}", result);
+	}
+	
+	@Test
+	public void testPostList(){
+		Post post = new Post();
+		post.setCategory("Spring");
+		int listSize = postDAO.getTotalCounts(post);
+		Page page = new Page(listSize);
+		List <Post> list = postDAO.getPostList(post, page);
+		log.info("í¬ìŠ¤íŠ¸ ë¦¬ìŠ¤íŠ¸ : {}", list);
+		
 	}
 	
 }

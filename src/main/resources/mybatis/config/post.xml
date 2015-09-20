@@ -33,17 +33,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="getTotalCounts" resultType="int">
 		select count(*) from post
-		<if test="categry != null || categry != ''">
-			where category = #{value}
-		</if>
-	</select>
-	<select id="getPostList" parameterType="page" resultMap="postRM">
-		select post_no,title,date(write_date) as writeDate from
-		springblog.post
-		<if test="categry != null || categry != ''">
+		<if test="category != null || category != ''">
 			where category = #{category}
 		</if>
-		order by post_no desc limit #{beginRow},#{pageSize};
+	</select>
+	<select id="getPostList" resultMap="postRM">
+		select * from post
+		<if test="category != null || category != ''">
+			where category = #{category}
+		</if>
+		order by post_no desc limit #{page.beginRow},#{page.pageSize};
 	</select>
 	<update id="updatePost">
 		update post set

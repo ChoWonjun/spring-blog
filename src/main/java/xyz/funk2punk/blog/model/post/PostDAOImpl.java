@@ -1,6 +1,9 @@
 package xyz.funk2punk.blog.model.post;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -51,16 +54,19 @@ public class PostDAOImpl implements PostDAO {
 	 * @see xyz.funk2punk.blog.model.post.PostDAO#getTotalCounts(java.lang.String)
 	 */
 	@Override
-	public int getTotalCounts(String category) {
-		return sqlSessionTemplate.selectOne("post.getTotalCounts", category);
+	public int getTotalCounts(Post post) {
+		return sqlSessionTemplate.selectOne("post.getTotalCounts", post);
 	}
 
 	/* (non-Javadoc)
 	 * @see xyz.funk2punk.blog.model.post.PostDAO#getArticleList(xyz.funk2punk.blog.common.Page)
 	 */
 	@Override
-	public List<Post> getPostList(Page page) {
-		return sqlSessionTemplate.selectList("post.getPostList", page);
+	public List<Post> getPostList(Post post, Page page) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("category", post.getCategory());
+		map.put("page", page);
+		return sqlSessionTemplate.selectList("post.getPostList", map);
 	}
 
 }

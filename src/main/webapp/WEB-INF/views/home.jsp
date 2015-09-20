@@ -35,7 +35,7 @@
 							miles up</h3>
 					</a>
 					<p class="post-meta">
-						Posted by <a href="#">${post.category}</a> on ${post.date}
+						Posted in <a href="#">${post.category}</a>category on ${post.date}
 					</p>
 				</div>
 				<hr>

@@ -61,14 +61,12 @@
 		</li>
 		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Database</a>
 		</li>
-		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Book</a>
-		</li>
-		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Movie</a>
+		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Book & Movie</a>
 		</li>
 		<li><a href="#portfolio" onclick=$("#menu-close").click(); >etc.</a>
 		</li>
 		<sec:authorize access="isAuthenticated()">
-			<li><a href="${initParam.root}post/write_post" onclick=$("#menu-close").click(); >Post Article</a>
+			<li><a href="${initParam.root}post/writeForm" onclick=$("#menu-close").click(); >Post Article</a>
 			</li>
 		</sec:authorize>
 	</ul>

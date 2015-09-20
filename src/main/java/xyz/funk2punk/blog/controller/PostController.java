@@ -19,9 +19,9 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 	
-	@RequestMapping(value = "/post/write_post")
+	@RequestMapping(value = "/post/writeFrom")
 	public String showWriteForm(Post post) {
-		return "post_default/write_post";
+		return "post_default/writeForm";
 	}
 	
 	@RequestMapping(value = "/post", method=RequestMethod.POST)

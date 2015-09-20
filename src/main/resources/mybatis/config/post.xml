@@ -8,14 +8,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="postNo" column="post_no" />
 		<result property="category" column="category" />
 		<result property="title" column="title" />
+		<result property="subTitle" column="sub_title" />
 		<result property="content" column="content" />
 		<result property="recommend" column="recommend" />
 		<result property="open" column="open" />
 		<result property="writeDate" column="write_date" />
 	</resultMap>
 	<insert id="insertPost">
-		insert into post(category,title,content,open,write_date)
-		values(#{category},#{title},#{content},#{open},now())
+		insert into post(category,title,sub_title,content,open,write_date)
+		values(#{category},#{title},#{subTitle},#{content},#{open},now())
 		<selectKey keyProperty="postNo" resultType="int" order="AFTER">
 			select max(post_no) from post
 		</selectKey>

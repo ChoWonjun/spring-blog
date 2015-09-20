@@ -11,7 +11,7 @@ public class Page {
 	
 	private int totalListSize; // 페이징 처리할 리스트의 전체 행 갯수
 	
-	private int pageSize = 10; // 한 페이지당 보여줄 행의 갯수 (기본값:10)
+	private int pageSize = 5; // 한 페이지당 보여줄 행의 갯수 (기본값:5)
 
 	private int pageGroupSize = 5; // 한 페이지 그룹에 들어갈 페이지의 갯수 (기본값:5)
 

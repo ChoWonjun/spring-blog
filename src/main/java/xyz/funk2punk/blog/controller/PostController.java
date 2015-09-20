@@ -1,7 +1,5 @@
 package xyz.funk2punk.blog.controller;
 
-import java.util.Locale;
-
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,39 +10,40 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import xyz.funk2punk.blog.common.ListContainer;
 import xyz.funk2punk.blog.model.post.Post;
 import xyz.funk2punk.blog.service.PostService;
 
 @Controller
 public class PostController {
-	
+
 	@Autowired
 	private PostService postService;
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		model.addAttribute("listContainer", postService.getRecentPosts(1));
-		return "home";
-	}
-	
-	@RequestMapping(value = "/post/writeFrom")
-	public String showWriteForm(Post post) {
+
+	@RequestMapping(value = "/post/writeForm")
+	public String showWriteForm() {
 		return "post_default/writeForm";
 	}
-	
-	@RequestMapping(value = "/post", method=RequestMethod.POST)
-	public String writingPost(Model model, Post post,  BindingResult result){
+
+	@RequestMapping(value = "/post", method = RequestMethod.POST)
+	public String writingPost(Model model, Post post, BindingResult result) {
 		postService.insertPost(post);
 		System.out.println(post);
-		return "redirect:/post/"+post.getPostNo();
+		return "redirect:/post/" + post.getPostNo();
 	}
-	
-	@RequestMapping(value="/post/{postNo}",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/post/{postNo}", method = RequestMethod.GET)
 	public String selectPost(@PathVariable int postNo, Model model, HttpServletResponse response) {
 		Post post = postService.getPost(postNo);
 		model.addAttribute("post", post);
 		return "post_default/post";
 	}
 	
-	
+	@RequestMapping(value = "/recentPosts/{pageNo}", method = RequestMethod.GET)
+	public String recentPosts(@PathVariable int pageNo, Model model){
+		 ListContainer listContainer = postService.getRecentPosts(pageNo);
+		 model.addAttribute("listContainer", listContainer);
+		 return "home";
+	}
+
 }

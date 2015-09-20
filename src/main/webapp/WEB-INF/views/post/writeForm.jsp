@@ -103,6 +103,13 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="subTitle" class="col-md-2 control-label">Sub Title</label>
+				<div class="col-md-8">
+					<input type="text" class="form-control" id="subTitle" name="subTitle"
+						placeholder=" 부제목">
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="content" class="col-md-2 control-label">Content</label>
 				<div class="col-md-8">
 					<textarea id="SE" name="content"

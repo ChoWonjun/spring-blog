@@ -12,10 +12,11 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<div class="site-heading">
-					<h1>Funk 2 Punk</h1>
+					<h1>Cho's Blog</h1>
 					<hr class="small">
-					<span class="subheading">A Personal Repository of Dreaming
-						Developer</span>
+					<span class="subheading">“Before software can be reusable it
+						first has to be usable.”<br>-Ralph Johnson-
+					</span>
 				</div>
 			</div>
 		</div>
@@ -32,11 +33,11 @@
 				<div class="post-preview">
 					<a href="post.html">
 						<h2 class="post-title">${post.title}</h2>
-						<h3 class="post-subtitle">Problems look mighty small from 150
-							miles up</h3>
+						<h3 class="post-subtitle">${post.subTitle}</h3>
 					</a>
 					<p class="post-meta">
-						Posted in <a href="#">${post.category}</a>category on ${post.date}
+						Posted in <a href="#">${post.category}</a> category on
+						${post.date}
 					</p>
 				</div>
 				<hr>
@@ -44,10 +45,14 @@
 
 			<!-- Pager -->
 			<ul class="pager">
-				<li class="next"><a href="#">Older Posts &rarr;</a></li>
+				<c:if test="${page.currentPage != 1 }">
+					<li class="previous"><a href="${initParam.root }recentPosts/${page.currentPage-1 }">&larr; Newer Posts</a></li>
+				</c:if>
+				<c:if test="${page.endRow < page.totalListSize }">
+					<li class="next"><a href="${initParam.root }recentPosts/${page.currentPage+1 }">Older Posts &rarr;</a></li>
+				</c:if>
 			</ul>
 		</div>
 	</div>
 </div>
-
 <hr>

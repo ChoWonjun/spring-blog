@@ -12,6 +12,8 @@ public class Post {
 	@NotEmpty
 	private String title;
 	@NotEmpty
+	private String subTitle;
+	@NotEmpty
 	private String content;
 	private int recommend;
 	@NotEmpty
@@ -67,6 +69,14 @@ public class Post {
 		this.title = title;
 	}
 
+	public String getSubTitle() {
+		return subTitle;
+	}
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
+	}
+
 	public String getContent() {
 		return content;
 	}
@@ -98,8 +108,8 @@ public class Post {
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
 	}
-	
-	public String getDate(){
+
+	public String getDate() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String date = sdf.format(writeDate);
 		return date;

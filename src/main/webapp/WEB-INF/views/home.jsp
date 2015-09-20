@@ -31,12 +31,12 @@
 			<c:set var="list" value="${listContainer.list}" />
 			<c:forEach var="post" items="${list}">
 				<div class="post-preview">
-					<a href="post.html">
+					<a href="${initParam.root}post/${post.postNo}">
 						<h2 class="post-title">${post.title}</h2>
 						<h3 class="post-subtitle">${post.subTitle}</h3>
 					</a>
 					<p class="post-meta">
-						Posted in <a href="#">${post.category}</a> category on
+						Posted in <a href="${initParam.root}category/${post.category}/1">${post.category}</a> category on
 						${post.date}
 					</p>
 				</div>

@@ -26,7 +26,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
+			<c:set var="page" value="${listContainer.page}" />
+			<c:set var="list" value="${listContainer.list}" />
 			<c:forEach var="post" items="${list}">
 				<div class="post-preview">
 					<a href="post.html">

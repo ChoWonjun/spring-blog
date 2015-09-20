@@ -17,7 +17,7 @@ import xyz.funk2punk.blog.common.Page;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/root-context.xml")
-public class testPostDAOImpl {
+public class testPostDAO {
 
 	@Autowired
 	private PostDAO postDAO;

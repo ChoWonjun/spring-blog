@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
-encoding//src/test/java/xyz/funk2punk/blog/model/post/testPostDAOImpl.java=UTF-8
+encoding//src/main/java/xyz/funk2punk/blog/common/Page.java=UTF-8
+encoding//src/test/java/xyz/funk2punk/blog/model/post/testPostDAO.java=UTF-8

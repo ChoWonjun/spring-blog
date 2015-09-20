@@ -126,7 +126,7 @@ public class Page {
 		
 		this.currentPageGroup = (currentPage/pageGroupSize) + (currentPage % pageGroupSize == 0 ? 0 : 1);
 		
-		this.beginRow = !isEmpty ? pageSize * (currentPage-1) + 1 : 0;
+		this.beginRow = !isEmpty ? pageSize * (currentPage-1) : 0;
 	
 		this.endRow = (currentPage==pageCount) ? totalListSize : (pageSize*currentPage);
 		

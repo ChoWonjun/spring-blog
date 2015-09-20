@@ -33,13 +33,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="getTotalCounts" resultType="int">
 		select count(*) from post
-		<if test="category != null || category != ''">
+		<if test="category != null and category !=''">
 			where category = #{category}
 		</if>
 	</select>
 	<select id="getPostList" resultMap="postRM">
 		select * from post
-		<if test="category != null || category != ''">
+		<if test="category != null and category != ''">
 			where category = #{category}
 		</if>
 		order by post_no desc limit #{page.beginRow},#{page.pageSize};

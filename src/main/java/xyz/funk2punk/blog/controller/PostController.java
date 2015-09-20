@@ -1,5 +1,7 @@
 package xyz.funk2punk.blog.controller;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,12 @@ public class PostController {
 	
 	@Autowired
 	private PostService postService;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Locale locale, Model model) {
+		model.addAttribute("listContainer", postService.getRecentPosts(1));
+		return "home";
+	}
 	
 	@RequestMapping(value = "/post/writeFrom")
 	public String showWriteForm(Post post) {

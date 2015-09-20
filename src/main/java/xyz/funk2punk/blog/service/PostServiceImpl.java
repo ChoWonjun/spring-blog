@@ -1,8 +1,12 @@
 package xyz.funk2punk.blog.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import xyz.funk2punk.blog.common.ListContainer;
+import xyz.funk2punk.blog.common.Page;
 import xyz.funk2punk.blog.model.post.Post;
 import xyz.funk2punk.blog.model.post.PostDAO;
 
@@ -43,5 +47,28 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public void deletePost(int postNo) {
 		postDAO.deletePost(postNo);
+	}
+	
+	@Override
+	public int getTotalCounts(Post post) {
+		return postDAO.getTotalCounts(post);
+	}
+	
+	@Override
+	public List<Post> getPostList(Post post, Page page) {
+		return postDAO.getPostList(post, page);
+	}
+	
+	@Override
+	public ListContainer getRecentPosts(int pageNo){
+		Post post = new Post();
+		int listSize = postDAO.getTotalCounts(post);
+		System.out.println(post.getCategory());
+		System.out.println(listSize);
+		Page page = new Page(listSize);
+		page.setCurrentPage(pageNo);
+		List <Post> list = postDAO.getPostList(post, page);
+		ListContainer listContainer = new ListContainer(list, page);
+		return listContainer;
 	}
 }

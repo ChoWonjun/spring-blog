@@ -9,7 +9,7 @@
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
 <header class="intro-header"
-	style="background-image: url('${initParam.root}resources/img/home-bg.jpg')">
+	style="background-image: url('${initParam.root}resources/img/header.jpg')">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -17,9 +17,9 @@
 					<c:forEach var="post" items="${list}">
 						<c:set var="category" value="${post.category }" />
 					</c:forEach>
-					<h1>About ${category }</h1>
+					<h1>about ${category }</h1>
 					<hr class="small">
-					<span class="subheading">“Deleted code is debugged code.”<br>-Jeff Sickel-
+					<span class="subheading">“Deleted code is debugged code.”<br><br>-Jeff Sickel-
 					</span>
 				</div>
 			</div>

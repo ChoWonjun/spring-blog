@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import xyz.funk2punk.blog.common.ListContainer;
-import xyz.funk2punk.blog.common.Page;
 import xyz.funk2punk.blog.model.post.Post;
 import xyz.funk2punk.blog.service.PostService;
 
@@ -21,7 +20,7 @@ public class PostController {
 	@Autowired
 	private PostService postService;
 
-	@RequestMapping(value = "/post/writeForm")
+	@RequestMapping(value = "/writeForm")
 	public String showWriteForm() {
 		return "post_default/writeForm";
 	}
@@ -53,5 +52,24 @@ public class PostController {
 		 model.addAttribute("listContainer", listContainer);
 		 return "post_default/category";
 	}
+	
+	@RequestMapping(value = "/updateForm/{postNo}", method = RequestMethod.GET)
+	public String showUpdateForm(@PathVariable int postNo, Model model, HttpServletResponse response) {
+		Post post = postService.getPost(postNo);
+		model.addAttribute("post", post);
+		return "post_default/updateForm";
+	}
 
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String updatingPost(Model model, Post post, BindingResult result) {
+		postService.updatePost(post);
+		System.out.println(post);
+		return "redirect:/post/" + post.getPostNo();
+	}
+	
+	@RequestMapping(value = "/delete/{postNo}", method = RequestMethod.GET)
+	public String deletingPost(@PathVariable int postNo) {
+		postService.deletePost(postNo);
+		return "redirect:/recentPosts/1";
+	}
 }

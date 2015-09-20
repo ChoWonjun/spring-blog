@@ -47,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<update id="updatePost">
 		update post set
-		category=#{category},title=#{title},content=#{content},open=#{open}
+		category=#{category},title=#{title},sub_title=#{subTitle},content=#{content},open=#{open}
 		where post_no=#{postNo}
 	</update>
 </mapper>

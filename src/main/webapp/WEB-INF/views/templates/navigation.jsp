@@ -26,7 +26,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="${initParam.root}">Home</a></li>
 				<li><a href="${initParam.root}post" id="menu-toggle">Board</a></li>
-				<li><a href="${initParam.root}portfolio">Portfolio</a></li>
+				<li><a href="http://codewid.me/portfolio">Portfolio</a></li>
 				<sec:authorize access="!isAuthenticated()">
 					<li><a href="${initParam.root}login">Sign In</a></li>
 				</sec:authorize>
@@ -66,7 +66,7 @@
 		<li><a href="${initParam.root}category/etc./1" onclick=$("#menu-close").click(); >etc.</a>
 		</li>
 		<sec:authorize access="isAuthenticated()">
-			<li><a href="${initParam.root}post/writeForm" onclick=$("#menu-close").click(); >Post Article</a>
+			<li><a href="${initParam.root}writeForm" onclick=$("#menu-close").click(); >Post Article</a>
 			</li>
 		</sec:authorize>
 	</ul>

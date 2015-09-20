@@ -11,12 +11,14 @@
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/post/**"
 			method="GET" access="permitAll" />
+		<security:intercept-url pattern="/updateForm/**"
+			access="permitAll" />
 		<security:intercept-url pattern="/post/**"
 			access="hasAuthority('ROLE_ADMIN')" />
 		<security:intercept-url pattern="/**" access="permitAll" />
-		<security:form-login 
-			login-processing-url="/login" username-parameter="username"
-			password-parameter="password" authentication-failure-url="/signin?error=true" />
+		<security:form-login login-processing-url="/login"
+			username-parameter="username" password-parameter="password"
+			authentication-failure-url="/signin?error=true" />
 		<security:logout invalidate-session="true" logout-url="/logout"
 			logout-success-url="/" delete-cookies="JSESSIONID" />
 	</security:http>
@@ -24,7 +26,8 @@
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="admin" password="1234" authorities="ROLE_ADMIN"/>
+				<security:user name="admin" password="1234"
+					authorities="ROLE_ADMIN" />
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>

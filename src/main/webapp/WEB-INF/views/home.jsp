@@ -15,7 +15,7 @@
 					<h1>Cho's Blog</h1>
 					<hr class="small">
 					<span class="subheading">“Before software can be reusable it
-						first has to be usable.”<br>-Ralph Johnson-
+						first has to be usable.”<br><br>-Ralph Johnson-
 					</span>
 				</div>
 			</div>

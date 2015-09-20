@@ -54,16 +54,16 @@
 			class="fa fa-times"></i></a>
 		<li class="sidebar-brand"><a href="#top" onclick=$("#menu-close").click(); >Categories</a>
 		</li>
-		<li><a href="#top" onclick=$("#menu-close").click(); >IT</a></li>
-		<li><a href="#about" onclick=$("#menu-close").click(); >Java</a>
+		<li><a href="${initParam.root}category/IT/1" onclick=$("#menu-close").click(); >IT</a></li>
+		<li><a href="${initParam.root}category/Java/1" onclick=$("#menu-close").click(); >Java</a>
 		</li>
-		<li><a href="#services" onclick=$("#menu-close").click(); >Spring</a>
+		<li><a href="${initParam.root}category/Spring/1" onclick=$("#menu-close").click(); >Spring</a>
 		</li>
-		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Database</a>
+		<li><a href="${initParam.root}category/Database/1" onclick=$("#menu-close").click(); >Database</a>
 		</li>
-		<li><a href="#portfolio" onclick=$("#menu-close").click(); >Book & Movie</a>
+		<li><a href="${initParam.root}category/Book/1" onclick=$("#menu-close").click(); >Book & Movie</a>
 		</li>
-		<li><a href="#portfolio" onclick=$("#menu-close").click(); >etc.</a>
+		<li><a href="${initParam.root}category/etc./1" onclick=$("#menu-close").click(); >etc.</a>
 		</li>
 		<sec:authorize access="isAuthenticated()">
 			<li><a href="${initParam.root}post/writeForm" onclick=$("#menu-close").click(); >Post Article</a>

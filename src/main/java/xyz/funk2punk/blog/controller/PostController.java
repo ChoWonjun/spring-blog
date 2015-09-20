@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import xyz.funk2punk.blog.common.ListContainer;
+import xyz.funk2punk.blog.common.Page;
 import xyz.funk2punk.blog.model.post.Post;
 import xyz.funk2punk.blog.service.PostService;
 
@@ -38,12 +39,19 @@ public class PostController {
 		model.addAttribute("post", post);
 		return "post_default/post";
 	}
-	
+
 	@RequestMapping(value = "/recentPosts/{pageNo}", method = RequestMethod.GET)
-	public String recentPosts(@PathVariable int pageNo, Model model){
-		 ListContainer listContainer = postService.getRecentPosts(pageNo);
+	public String recentPosts(@PathVariable int pageNo, Model model) {
+		ListContainer listContainer = postService.getRecentPosts(pageNo);
+		model.addAttribute("listContainer", listContainer);
+		return "home";
+	}
+
+	@RequestMapping(value = "/category/{category}/{pageNo}", method = RequestMethod.GET)
+	public String selectCategory(@PathVariable String category, @PathVariable int pageNo, Model model){
+		 ListContainer listContainer = postService.selectCategory(category, pageNo);
 		 model.addAttribute("listContainer", listContainer);
-		 return "home";
+		 return "post_default/category";
 	}
 
 }

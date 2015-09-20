@@ -89,8 +89,7 @@
 						<option value="Java">Java</option>
 						<option value="Spring">Spring</option>
 						<option value="Database">Database</option>
-						<option value="Book">Book</option>
-						<option value="Movie">Movie</option>
+						<option value="Book">Book & Movie</option>
 						<option value="etc.">etc.</option>
 					</select>
 				</div>

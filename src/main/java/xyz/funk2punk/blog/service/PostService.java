@@ -22,4 +22,6 @@ public interface PostService {
 
 	ListContainer getRecentPosts(int pageNo);
 
+	ListContainer selectCategory(String category, int pageNo);
+
 }

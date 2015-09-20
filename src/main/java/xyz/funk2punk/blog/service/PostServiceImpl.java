@@ -63,8 +63,18 @@ public class PostServiceImpl implements PostService {
 	public ListContainer getRecentPosts(int pageNo){
 		Post post = new Post();
 		int listSize = postDAO.getTotalCounts(post);
-		System.out.println(post.getCategory());
-		System.out.println(listSize);
+		Page page = new Page(listSize);
+		page.setCurrentPage(pageNo);
+		List <Post> list = postDAO.getPostList(post, page);
+		ListContainer listContainer = new ListContainer(list, page);
+		return listContainer;
+	}
+	
+	@Override
+	public ListContainer selectCategory(String category, int pageNo){
+		Post post = new Post();
+		post.setCategory(category);
+		int listSize = postDAO.getTotalCounts(post);
 		Page page = new Page(listSize);
 		page.setCurrentPage(pageNo);
 		List <Post> list = postDAO.getPostList(post, page);

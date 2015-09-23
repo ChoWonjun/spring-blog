@@ -333,11 +333,34 @@ footer .copyright {
 	transition: top .3s ease, opacity .3s ease
 }
 
-.floating-label-form-group::not (:first-child ){
-	padding-left: 14px;
-	border-left: 1px solid #eee
-}
+.floating-label-form-group
+:
+:not
+ 
+(
+:first-child
+ 
+){
+padding-left
+:
+ 
+14
+px
+;
 
+	
+border-left
+:
+ 
+1
+px
+ 
+solid
+ 
+#eee
+
+
+}
 .floating-label-form-group-with-value label {
 	top: 0;
 	opacity: 1
@@ -424,4 +447,47 @@ img::-moz-selection {
 
 body {
 	webkit-tap-highlight-color: #0085a1
+}
+
+#dropdown-btn :active,
+#dropdown-btn :focus{
+	background: rgba(255,255,255,0.2);
+	text-decoration: none;
+}
+
+.navbar-top-links .dropdown-menu {
+    position: absolute; 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.2);
+}
+
+.navbar-top-links .dropdown-menu li {
+	display: block;
+	text-indent: 10px;
+    line-height: 40px;
+}
+
+.navbar-top-links .dropdown-menu li a {
+	padding: 3px 20px;
+	min-height: 0;
+	display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+	white-space: normal;
+}
+
+.navbar-top-links .dropdown-menu li a:hover {
+    text-decoration: none;
+    background: rgba(255,255,255,0.2);
+}
+
+.navbar-top-links .dropdown-menu li a:active,
+.navbar-top-links .dropdown-menu li a:focus {
+    text-decoration: none;
 }
